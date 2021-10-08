@@ -1,0 +1,54 @@
+# ------------------------  PyTorch Lightning Configurations --------------------------------------
+seed: 42                                  # Training seed set everywhere
+verbose: False                            # Verbosity level
+
+# ----------------------------- Early Stopping ----------------------------------------------------
+monitor: mcc                          # Metric to monitor during training
+min_delta: 0.0                            # Sensitivity to the metric.
+patience: 10                               # Number of epochs without improvement before stopping training
+metric_mode: max                          # 'min' or 'max' depending if we wish to maximize or minimize the metric
+
+# ----------------------------- Model Checkpoint --------------------------------------------------
+save_top_k: 3                             # How many checkpoints we want to save.
+save_weights_only: True                   # Saves the model weights only
+
+# ----------------------------- Lightning Trainer --------------------------------------------------
+default_root_dir: /mnt/data-zeus2/mtreviso/explainable_qe_shared_task/
+gradient_clip_val: 1.0                    # Clips gradients when the norm value exceeds 1.0
+gpus: 1                                   # Number of GPUs to use. (1 is recommended)
+deterministic: True                       # if true enables cudnn.deterministic. Might make your system slower, but ensures reproducibility.
+overfit_batches: 0.0                      # DEGUB: Uses this much data of the training set. If nonzero, will use the same training set for validation and testing.
+accumulate_grad_batches: 4                # Gradient accumulation steps
+min_epochs: 1                             # Min number of epochs
+max_epochs: 10                             # Max number of epochs
+#limit_train_batches: 1000                # To train with a lower percentage of the training data you can use this flag
+#limit_val_batches: 200                   # Same as the previous flag but for validation. 
+val_check_interval: 0.2                   # How often within one training epoch to check the validation set. Can specify as float or int.
+
+precision: 16                             # Train with 16 bit precision
+# profiler: True                          # To profile individual steps during training and assist in identifying bottlenecks.
+# resume_from_checkpoint: checkpoint.ckpt # To resume training from a specific checkpoint pass in the path here.
+
+# --------------------------------- Dataset -------------------------------------------------------
+pretrained_model: xlm-roberta-large
+train_path: data/mlqepe/all-all/train
+val_path: data/all-en/dev
+
+# -------------------------------- Fine-tuning -----------------------------------------------
+learning_rate: 1.0e-4               # Learning rate to be used during fine-tuning
+encoder_learning_rate: 1.0e-4
+# nr_frozen_epochs: 0.25
+# keep_embeddings_frozen: True
+
+dropout: 0.05
+hidden_sizes:
+    - 1024
+
+batch_size: 2
+
+loss: mse
+use_adapters: True
+alpha_merge: 0.5
+aggregation: first
+selected_layers: mix
+word_level_lbda: 1000.0
