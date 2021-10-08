@@ -139,7 +139,7 @@ A file called `submissions.zip` will be created in the working directory with th
   author       = {Treviso, Marcos and Guerreiro, Nuno and Rei, Ricardo and Martins, Andr{\'e} F. T.},
   year         = 2021,
   month        = nov,
-  booktitle    = {Proceedings of the Second Eval4NLP Workshop on Evaluation & Comparison of NLP Systems},
+  booktitle    = {Proceedings of the Second Eval4NLP Workshop on Evaluation and Comparison of NLP Systems},
   publisher    = {Association for Computational Linguistics},
   address      = {Online},
 }
