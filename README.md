@@ -1,6 +1,6 @@
 # Minimalist explainable XLM-R QE system 
 
-This repo contains the code for the [IST-Unbabel 2021 Submission for the Quality Estimation Shared Task](https://eval4nlp.github.io/sharedtask.html).  
+This repo contains the code for the [IST-Unbabel 2021 Submission for the Quality Estimation Shared Task](https://aclanthology.org/2021.eval4nlp-1.14.pdf).  
 
 
 ### Data from the shared task:
@@ -73,7 +73,7 @@ Several folders will be created with their name prefixed by the path informed vi
 - for each layer (average heads)
 - for each head (average the "rows" in the attention map)
 
-Moreover, if you want to get explanations in terms of `attention * norm(values)`, inform can inform these flags:
+Moreover, if you want to get explanations in terms of `attention * norm(values)`, you can inform these flags:
 ```bash
   --norm-attention
   --norm-strategy weighted_norm
@@ -134,14 +134,19 @@ A file called `submissions.zip` will be created in the working directory with th
 
 ### Bibtex entry
 ```
-@inproceedings{treviso-et-al-2021-ist,
-  title        = {IST-Unbabel 2021 Submission for the Explainable Quality Estimation Shared Task},
-  author       = {Treviso, Marcos and Guerreiro, Nuno and Rei, Ricardo and Martins, Andr{\'e} F. T.},
-  year         = 2021,
-  month        = nov,
-  booktitle    = {Proceedings of the Second Eval4NLP Workshop on Evaluation and Comparison of NLP Systems},
-  publisher    = {Association for Computational Linguistics},
-  address      = {Online},
+@inproceedings{treviso-etal-2021-ist,
+    title = "{IST}-Unbabel 2021 Submission for the Explainable Quality Estimation Shared Task",
+    author = "Treviso, Marcos  and
+      Guerreiro, Nuno M.  and
+      Rei, Ricardo  and
+      Martins, Andr{\'e} F. T.",
+    booktitle = "Proceedings of the 2nd Workshop on Evaluation and Comparison of NLP Systems",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.eval4nlp-1.14",
+    pages = "133--145",
 }
 ```
 
